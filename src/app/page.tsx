@@ -53,7 +53,7 @@ export default function Home() {
         <CtaBand />
       </main>
       <Footer />
-      <MascotChatbox watchId="languages" />
+      <MascotChatbox watchId="features" />
       <WaitlistModal />
     </>
   );

@@ -66,7 +66,7 @@ export default function Hero() {
 
         <div className="relative mx-auto w-full max-w-md pt-28 md:pt-24">
           {/* Mascot greeting card — sits above the mascot's head */}
-          <div className="absolute left-1/2 top-0 z-10 -translate-x-1/2 rounded-2xl rounded-bl-sm border border-genie/50 bg-cosmic/80 px-5 py-3 shadow-xl shadow-night/50 backdrop-blur-sm md:left-auto md:right-2 md:-translate-x-0">
+          <div className="absolute left-1/2 top-6 z-10 -translate-x-1/2 rounded-2xl rounded-bl-sm border border-genie/50 bg-cosmic/80 px-5 py-3 shadow-xl shadow-night/50 backdrop-blur-sm md:left-auto md:right-2 md:-translate-x-0 md:top-8">
             <p className="font-heading text-sm font-semibold text-cream">
               {HERO.greeting.title}
             </p>

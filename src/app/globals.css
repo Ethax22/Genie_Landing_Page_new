@@ -175,6 +175,75 @@ body {
   animation: demo-fill 3.4s ease-in-out infinite alternate;
 }
 
+/* --- Caption-preset animations (EDIT tab live preview) ---
+   One-shot, `both` fill so words settle into their styled state and stay.
+   The preview container is keyed by style+subtab, so these replay on every
+   preset switch. --cap-delay staggers word-by-word. */
+@keyframes cap-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes cap-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes cap-marker {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes cap-karaoke {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.cap-pop {
+  animation: cap-pop 0.5s ease-out both;
+  animation-delay: var(--cap-delay, 0s);
+}
+.cap-rise {
+  animation: cap-rise 0.5s ease-out both;
+  animation-delay: var(--cap-delay, 0s);
+}
+.cap-marker-bar {
+  animation: cap-marker 0.45s ease-out both;
+  animation-delay: var(--cap-delay, 0s);
+}
+.cap-karaoke {
+  background-image: linear-gradient(
+    to right,
+    #d4af37 50%,
+    rgba(245, 240, 225, 0.45) 50%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: cap-karaoke 0.6s ease-out both;
+  animation-delay: var(--cap-delay, 0s);
+}
+
 /* Staggered reveal for panel contents — replays on every tab switch
    because the panel is keyed by the active tab and remounts. */
 .stagger > * {

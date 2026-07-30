@@ -22,7 +22,7 @@ export const LANGUAGES = [
 export const NAV = {
   links: [
     { label: "Product", href: "#product" },
-    { label: "Languages", href: "#languages" },
+    { label: "Features", href: "#features" },
     { label: "Genie vs AI", href: "#genie-vs-ai" },
     { label: "FAQ", href: "#faq" },
   ],
@@ -45,9 +45,9 @@ export const HERO = {
     "MY AUDIENCE SPEAKS TAMIL",
   ],
   eyebrow: "DPIIT-RECOGNIZED · BUILT FOR INDIA'S REGIONAL CREATORS",
-  h1: "Record once. Genie edits, dubs, and publishes — in 11 Indian languages.",
+  h1: "The Vertical AI Creator Studio.",
   subhead:
-    "One studio, not six tools — AI editing, native-sounding dubbing, and publishing straight to YouTube Shorts and Instagram Reels.",
+    "From idea to income — in one studio, in 11 Indian languages.",
   cta: "Join the Waitlist",
   microcopy: "Free to join · No credit card",
   greeting: {
@@ -55,7 +55,7 @@ export const HERO = {
     line: "Your reel, in every language your audience speaks",
   },
   chips: [
-    { emoji: "🎬", label: "1 upload → 4 outputs" },
+    { emoji: "🎬", label: "Stop paying 6 different tools" },
     { emoji: "🌏", label: "11 languages, one take" },
     { emoji: "💸", label: "Paid in UPI" },
   ],
@@ -107,13 +107,40 @@ export const MOCKUP = {
         "1 upload → edit, captions, titles, thumbnail. Genie transcribes word-by-word, cuts fillers and silences, and every cut stays reviewable.",
       demo: {
         kind: "edit" as const,
+        subtabs: [
+          { id: "captions" as const, label: "Captions" },
+          { id: "broll" as const, label: "B-Roll" },
+          { id: "polish" as const, label: "Polish" },
+          { id: "variants" as const, label: "Variants" },
+        ],
+        preview: { line: "Shoot once. Publish everywhere.", highlight: "once" },
+        captionStyles: [
+          { name: "Bold Chunks", desc: "Bold word chunks, per-word color", sample: "Stop paying for six tools." },
+          { name: "Build-Up", desc: "Words add up left-to-right", sample: "One upload becomes four reels." },
+          { name: "Marker", desc: "Marker pen behind the word", sample: "Your audience speaks eleven languages." },
+          { name: "3D Punch", desc: "Chunky caps, drop shadow", sample: "Record once. Post everywhere." },
+          { name: "Pop-In", desc: "Single-word focus, springs in", sample: "Hooks that actually land." },
+          { name: "Word Sweep", desc: "Word-by-word fill sweep", sample: "Dubbed in your own language." },
+        ],
+        broll: [
+          { at: "0:03", keyword: "skyline b-roll" },
+          { at: "0:11", keyword: "camera dial" },
+          { at: "0:19", keyword: "the 3 settings" },
+        ],
         items: [
           { label: "Filler words removed", value: "14 cuts" },
           { label: "Silences trimmed", value: "9 cuts" },
           { label: "Captions", value: "word-level, styled" },
-          { label: "Title + thumbnail", value: "generated from the same pass" },
+          { label: "Title + thumbnail", value: "from the same pass" },
         ],
         command: "“remove the pause at 0:42”",
+        grades: ["Cinematic", "Warm", "Vintage", "B&W"],
+        variants: [
+          { label: "9:16 · Shorts & Reels", value: "master" },
+          { label: "1:1 · Instagram feed", value: "auto-reframed" },
+          { label: "Tamil dub", value: "queued" },
+        ],
+        applyLabel: "Apply & auto-edit",
       },
     },
     {

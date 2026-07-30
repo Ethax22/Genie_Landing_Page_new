@@ -38,7 +38,7 @@ export default function Carousel() {
   }
 
   return (
-    <section id="languages" className="bg-night py-24">
+    <section id="features" className="bg-night py-24">
       <div className="mx-auto max-w-6xl px-6 lg:px-14">
         <div className="flex items-end justify-between gap-8">
           <div>
