@@ -88,26 +88,47 @@ export default function Comparison() {
           </div>
         </div>
 
-        {/* Mobile: stacked cards */}
-        <ul className="mt-10 space-y-3 md:hidden">
-          {COMPARISON.rows.map((row, i) => (
-            <Reveal as="li" key={row} delay={i * 60}>
-              <div className="rounded-xl border border-cosmic bg-cosmic/30 p-4">
-                <p className="text-sm font-medium leading-relaxed text-slate/90">{row}</p>
-                <div className="mt-3 flex items-center gap-6 text-xs">
-                  <span className="inline-flex items-center gap-2 font-semibold text-slate/80">
-                    <Check size={15} strokeWidth={3} className="text-green-400" />
-                    {COMPARISON.colGenie}
+        {/* Mobile: compact 3-column table (feature · Genie · Others) */}
+        <div className="mt-10 overflow-hidden rounded-2xl border border-cosmic/70 bg-gradient-to-b from-cosmic/40 to-night shadow-xl shadow-genie/20 md:hidden">
+          <table className="w-full border-collapse text-left">
+            <thead>
+              <tr className="border-b border-cosmic/60">
+                <th className="px-3 py-3.5">
+                  <span className="font-heading text-sm font-bold text-cream">What you get</span>
+                </th>
+                <th className="w-[3.25rem] px-1 py-3.5 align-middle">
+                  <Image
+                    src={COMPARISON.genieLogo}
+                    alt={COMPARISON.colGenie}
+                    width={28}
+                    height={28}
+                    className="mx-auto h-7 w-7 object-contain"
+                  />
+                </th>
+                <th className="w-[3.25rem] px-1 py-3.5 align-middle">
+                  <span className="block text-center font-mono text-[9px] tracking-widest text-slate/45">
+                    OTHERS
                   </span>
-                  <span className="inline-flex items-center gap-2 text-slate/45">
-                    <X size={15} strokeWidth={3} className="text-red-400/80" />
-                    Others
-                  </span>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </ul>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {COMPARISON.rows.map((row, i) => (
+                <Reveal as="tr" key={row} delay={i * 55} className="border-t border-cosmic/40">
+                  <td className="px-3 py-3.5 align-middle">
+                    <p className="text-[13px] font-medium leading-snug text-slate/90">{row}</p>
+                  </td>
+                  <td className="px-1 py-3.5 text-center align-middle">
+                    <Check aria-label="Yes" size={17} strokeWidth={3} className="mx-auto text-green-400" />
+                  </td>
+                  <td className="px-1 py-3.5 text-center align-middle">
+                    <X aria-label="No" size={17} strokeWidth={3} className="mx-auto text-red-400/80" />
+                  </td>
+                </Reveal>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

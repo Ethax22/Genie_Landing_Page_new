@@ -615,17 +615,61 @@ export default function MockupSection() {
   const [lang, setLang] = useState<Language>("Tamil");
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
+  // Tracks the active touch so we can tell a horizontal "tilt" drag apart from a
+  // vertical page-scroll — and leave taps on the inner controls alone.
+  const touch = useRef<{ startX: number; startY: number; mode: "idle" | "tilt" | "skip" }>({
+    startX: 0,
+    startY: 0,
+    mode: "idle",
+  });
   const tab = MOCKUP.tabs.find((t) => t.id === active)!;
 
-  function onMove(e: React.MouseEvent) {
+  const reducedMotion = () =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function tiltFrom(clientX: number, clientY: number) {
     const el = cardRef.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const rect = el.getBoundingClientRect();
     setTilt({
-      x: (e.clientX - rect.left) / rect.width - 0.5,
-      y: (e.clientY - rect.top) / rect.height - 0.5,
+      x: (clientX - rect.left) / rect.width - 0.5,
+      y: (clientY - rect.top) / rect.height - 0.5,
     });
+  }
+
+  function onMove(e: React.MouseEvent) {
+    if (reducedMotion()) return;
+    tiltFrom(e.clientX, e.clientY);
+  }
+
+  function onTouchStart(e: React.TouchEvent) {
+    if (reducedMotion()) return;
+    const t = e.touches[0];
+    // Don't hijack drags that begin on an interactive control (tabs, slider, buttons).
+    const onControl = (e.target as HTMLElement).closest?.(
+      'button, a, input, select, textarea, [role="tab"], [role="switch"]'
+    );
+    touch.current = { startX: t.clientX, startY: t.clientY, mode: onControl ? "skip" : "idle" };
+  }
+
+  function onTouchMove(e: React.TouchEvent) {
+    if (touch.current.mode === "skip" || reducedMotion()) return;
+    const t = e.touches[0];
+    if (touch.current.mode === "idle") {
+      const dx = Math.abs(t.clientX - touch.current.startX);
+      const dy = Math.abs(t.clientY - touch.current.startY);
+      if (dx < 8 && dy < 8) return; // wait until the gesture has a direction
+      // Vertical-dominant → let the page scroll; horizontal → we own it as a tilt.
+      touch.current.mode = dx > dy ? "tilt" : "skip";
+      if (touch.current.mode === "skip") return;
+    }
+    tiltFrom(t.clientX, t.clientY);
+  }
+
+  function resetTilt() {
+    touch.current.mode = "idle";
+    setTilt({ x: 0, y: 0 });
   }
 
   return (
@@ -684,6 +728,10 @@ export default function MockupSection() {
             ref={cardRef}
             onMouseMove={onMove}
             onMouseLeave={() => setTilt({ x: 0, y: 0 })}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={resetTilt}
+            onTouchCancel={resetTilt}
             className="overflow-hidden rounded-2xl border border-cosmic bg-cosmic/40 shadow-2xl shadow-genie/20 transition-transform duration-200 ease-out will-change-transform"
             style={{
               transform: `perspective(1400px) rotateY(${tilt.x * 11}deg) rotateX(${
