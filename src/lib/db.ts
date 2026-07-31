@@ -1,30 +1,57 @@
-import { DatabaseSync } from "node:sqlite";
-import path from "node:path";
-import fs from "node:fs";
+import { Pool } from "pg";
 
-// node:sqlite (Node 22.5+) instead of better-sqlite3 — same synchronous API,
-// no native build step on Windows or in the Docker image.
-const DATA_DIR = process.env.DATA_DIR || path.join(process.cwd(), "data");
+// Postgres (Azure Database for PostgreSQL / Supabase). Uses a single shared
+// pool across the serverless runtime. Azure Postgres requires SSL.
+const connectionString = process.env.DATABASE_URL;
 
-let db: DatabaseSync | null = null;
+let pool: Pool | null = null;
 
-export function getDb(): DatabaseSync {
-  if (db) return db;
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-  db = new DatabaseSync(path.join(DATA_DIR, "waitlist.db"));
-  db.exec("PRAGMA journal_mode = WAL;");
-  db.exec(`
-    CREATE TABLE IF NOT EXISTS waitlist (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT NOT NULL,
-      email TEXT NOT NULL UNIQUE COLLATE NOCASE,
-      platform TEXT NOT NULL,
-      platform_handle TEXT NOT NULL,
-      primary_language TEXT NOT NULL,
-      created_at TEXT NOT NULL DEFAULT (datetime('now')),
-      ip_hash TEXT,
-      user_agent TEXT
-    );
-  `);
-  return db;
+export function getPool(): Pool {
+  if (pool) return pool;
+  if (!connectionString) {
+    throw new Error("DATABASE_URL is not set");
+  }
+  pool = new Pool({
+    connectionString,
+    // Azure Postgres presents a CA-signed cert; require SSL but don't fail on
+    // chain verification (App Service doesn't ship the Azure CA by default).
+    ssl: { rejectUnauthorized: false },
+    max: 5,
+  });
+  return pool;
+}
+
+/**
+ * Ensures the waitlist table exists. Safe to call repeatedly (idempotent).
+ * Called lazily on first insert so a fresh database self-provisions.
+ */
+let schemaReady: Promise<void> | null = null;
+
+export function ensureSchema(): Promise<void> {
+  if (schemaReady) return schemaReady;
+  schemaReady = getPool()
+    .query(
+      `
+      CREATE TABLE IF NOT EXISTS waitlist (
+        id              BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        name            TEXT NOT NULL,
+        email           TEXT NOT NULL,
+        platform        TEXT NOT NULL,
+        platform_handle TEXT NOT NULL,
+        primary_language TEXT NOT NULL,
+        created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
+        ip_hash         TEXT,
+        user_agent      TEXT
+      );
+      CREATE UNIQUE INDEX IF NOT EXISTS waitlist_email_lower_idx
+        ON waitlist (lower(email));
+      `
+    )
+    .then(() => undefined)
+    .catch((err) => {
+      // Reset so a later request can retry provisioning.
+      schemaReady = null;
+      throw err;
+    });
+  return schemaReady;
 }

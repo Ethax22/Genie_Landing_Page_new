@@ -1,4 +1,4 @@
-# Genie landing page — standalone Next.js build (no native deps; SQLite via node:sqlite)
+# Genie landing page — standalone Next.js build (no native deps; waitlist stored in Postgres via DATABASE_URL)
 FROM node:24-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
@@ -13,12 +13,10 @@ RUN npm run build
 FROM node:24-alpine AS run
 WORKDIR /app
 ENV NODE_ENV=production
-ENV DATA_DIR=/app/data
-RUN addgroup -S app && adduser -S app -G app && mkdir -p /app/data && chown app:app /app/data
+RUN addgroup -S app && adduser -S app -G app
 COPY --from=build --chown=app:app /app/.next/standalone ./
 COPY --from=build --chown=app:app /app/.next/static ./.next/static
 COPY --from=build --chown=app:app /app/public ./public
 USER app
 EXPOSE 3000
-VOLUME ["/app/data"]
 CMD ["node", "server.js"]

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createHash } from "node:crypto";
 import { z } from "zod";
-import { getDb } from "@/lib/db";
+import { getPool, ensureSchema } from "@/lib/db";
 import { allowRequest } from "@/lib/rate-limit";
 import { LANGUAGES, WAITLIST } from "@/content/copy";
 
@@ -61,15 +61,16 @@ export async function POST(req: NextRequest) {
   const userAgent = (req.headers.get("user-agent") || "").slice(0, 300);
 
   try {
-    getDb()
-      .prepare(
-        `INSERT INTO waitlist (name, email, platform, platform_handle, primary_language, ip_hash, user_agent)
-         VALUES (?, ?, ?, ?, ?, ?, ?)`
-      )
-      .run(data.name, data.email, data.platform, data.platform_handle, data.primary_language, ipHash, userAgent);
+    await ensureSchema();
+    await getPool().query(
+      `INSERT INTO waitlist (name, email, platform, platform_handle, primary_language, ip_hash, user_agent)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+      [data.name, data.email, data.platform, data.platform_handle, data.primary_language, ipHash, userAgent]
+    );
   } catch (err: unknown) {
-    // UNIQUE violation (duplicate email) → same generic success, no enumeration
-    if (err instanceof Error && err.message.includes("UNIQUE")) {
+    // Unique violation (duplicate email, Postgres code 23505) →
+    // same generic success, no enumeration.
+    if (typeof err === "object" && err !== null && "code" in err && (err as { code?: string }).code === "23505") {
       return genericOk();
     }
     console.error("waitlist insert failed:", err);
