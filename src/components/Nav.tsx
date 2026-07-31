@@ -36,7 +36,7 @@ export default function Nav() {
         style={{
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
-          backgroundColor: "rgba(11,14,46,0.72)",
+          backgroundColor: "rgba(8,12,24,0.72)",
         }}
       >
         <a href="#top" className="flex items-center" aria-label="GenieHive — home">
@@ -48,7 +48,7 @@ export default function Nav() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm text-cream/80 transition-colors hover:text-gold"
+                className="text-sm text-slate/80 transition-colors hover:text-gold"
               >
                 {link.label}
               </a>
@@ -59,7 +59,7 @@ export default function Nav() {
         <div className="flex items-center gap-3">
           <a
             href={NAV.cta.href}
-            className="hidden rounded-full bg-gold px-5 py-2 text-sm font-semibold text-night transition-transform hover:scale-105 md:inline-block"
+            className="btn-gold hidden rounded-full px-5 py-2 text-sm font-semibold transition-transform hover:scale-105 md:inline-block"
           >
             {NAV.cta.label}
           </a>

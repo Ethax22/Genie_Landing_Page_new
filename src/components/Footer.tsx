@@ -24,7 +24,7 @@ const SOCIAL_ICONS: Record<string, React.ReactNode> = {
 export default function Footer() {
   return (
     <footer className="border-t border-cosmic/40 bg-night py-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 text-sm text-cream/60 sm:px-6 md:flex-row md:justify-between">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 text-sm text-slate/60 sm:px-6 md:flex-row md:justify-between">
         <span>{FOOTER.copyright}</span>
         <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
           {FOOTER.legal.map((link) => (
@@ -41,7 +41,7 @@ export default function Footer() {
               <a
                 href={social.href}
                 aria-label={social.label}
-                className="text-cream/50 transition-colors hover:text-gold"
+                className="text-slate/50 transition-colors hover:text-gold"
                 target="_blank"
                 rel="noopener noreferrer"
               >

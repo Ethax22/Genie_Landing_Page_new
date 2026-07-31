@@ -10,7 +10,7 @@ import { LANGUAGES } from "@/content/copy";
 // with the card surface framing it on all sides (Creedom-style).
 const shell =
   "relative h-60 overflow-hidden rounded-xl border border-cosmic/70 bg-night p-4";
-const label = "font-mono text-[9px] tracking-widest text-cream/45";
+const label = "font-mono text-[9px] tracking-widest text-slate/45";
 
 function delay(i: number) {
   return { "--demo-delay": `${i * 0.45}s` } as React.CSSProperties;
@@ -40,11 +40,11 @@ function ScriptDemo() {
             className="demo-pop flex items-center gap-2.5 rounded-md border border-cosmic bg-cosmic/30 px-2.5 py-1.5"
           >
             <span className="font-mono text-[9px] text-gold">{tag}</span>
-            <span className="truncate text-[10px] text-cream/75">{line}</span>
+            <span className="truncate text-[10px] text-slate/75">{line}</span>
           </div>
         ))}
       </div>
-      <p className="mt-3 text-[10px] text-cream/45">Writing in your voice…</p>
+      <p className="mt-3 text-[10px] text-slate/45">Writing in your voice…</p>
     </div>
   );
 }
@@ -60,7 +60,7 @@ function VideoDemo() {
             style={delay(i)}
             className="demo-pop relative flex h-20 items-end rounded-md border border-genie/40 bg-gradient-to-br from-genie/50 to-cosmic p-1.5"
           >
-            <span className="font-mono text-[8px] text-cream/60">SCENE {i + 1}</span>
+            <span className="font-mono text-[8px] text-slate/60">SCENE {i + 1}</span>
           </div>
         ))}
       </div>
@@ -68,7 +68,7 @@ function VideoDemo() {
         <div className="demo-fill h-full rounded-full bg-gold" />
       </div>
       <div className="mt-4 rounded-md border border-cosmic bg-cosmic/30 px-2.5 py-2">
-        <span className="text-[10px] text-cream/70">Stitching 3 scenes into one clip…</span>
+        <span className="text-[10px] text-slate/70">Stitching 3 scenes into one clip…</span>
       </div>
     </div>
   );
@@ -94,7 +94,7 @@ function EditDemo() {
         })}
       </div>
       <div className="mt-5 flex items-center justify-between">
-        <span className="text-[10px] text-cream/45">14 fillers · 9 silences</span>
+        <span className="text-[10px] text-slate/45">14 fillers · 9 silences</span>
         <span className="rounded-full bg-gold/15 px-2 py-0.5 font-mono text-[9px] text-gold">
           CUT
         </span>
@@ -112,7 +112,7 @@ function DubDemo() {
           <span
             key={lang}
             style={delay(i)}
-            className="demo-pop rounded-full border border-cosmic px-2.5 py-1 text-[9px] text-cream/75"
+            className="demo-pop rounded-full border border-cosmic px-2.5 py-1 text-[9px] text-slate/75"
           >
             {lang}
           </span>
@@ -127,7 +127,7 @@ function DubDemo() {
           />
         ))}
       </div>
-      <p className="mt-3 text-[10px] text-cream/45">38 voices · auto gender match</p>
+      <p className="mt-3 text-[10px] text-slate/45">38 voices · auto gender match</p>
     </div>
   );
 }
@@ -141,16 +141,16 @@ function ThumbnailDemo() {
           style={delay(0)}
           className="demo-pop relative h-28 flex-1 overflow-hidden rounded-md border border-genie/40 bg-gradient-to-br from-genie/50 to-cosmic"
         >
-          <span className="absolute bottom-1.5 left-2 font-mono text-[8px] text-cream/70">16:9</span>
+          <span className="absolute bottom-1.5 left-2 font-mono text-[8px] text-slate/70">16:9</span>
         </div>
         <div
           style={delay(1)}
           className="demo-pop relative h-32 w-20 overflow-hidden rounded-md border border-gold/40 bg-gradient-to-br from-gold/30 to-cosmic"
         >
-          <span className="absolute bottom-1.5 left-2 font-mono text-[8px] text-cream/70">9:16</span>
+          <span className="absolute bottom-1.5 left-2 font-mono text-[8px] text-slate/70">9:16</span>
         </div>
       </div>
-      <p className="mt-4 text-[10px] text-cream/45">Generated from the same pass</p>
+      <p className="mt-4 text-[10px] text-slate/45">Generated from the same pass</p>
     </div>
   );
 }
@@ -170,12 +170,12 @@ function PublishDemo() {
             style={delay(i)}
             className="demo-pop flex items-center justify-between rounded-md border border-cosmic bg-cosmic/40 px-3 py-2.5"
           >
-            <span className="text-[10px] text-cream/80">{platform}</span>
+            <span className="text-[10px] text-slate/80">{platform}</span>
             <span className="font-mono text-[9px] text-gold">{when}</span>
           </div>
         ))}
       </div>
-      <p className="mt-4 text-[10px] text-cream/45">Uploads on time · retries on failure</p>
+      <p className="mt-4 text-[10px] text-slate/45">Uploads on time · retries on failure</p>
     </div>
   );
 }
@@ -186,7 +186,7 @@ function UpiDemo() {
       <span className={label}>PAY PAGE</span>
       <div className="mt-4 rounded-lg border border-gold/40 bg-gold/10 p-5 text-center">
         <p className="font-mono text-3xl text-gold">₹ 199</p>
-        <p className="mt-1.5 text-[10px] text-cream/60">from your audience, direct</p>
+        <p className="mt-1.5 text-[10px] text-slate/60">from your audience, direct</p>
       </div>
       <div
         style={delay(1)}
@@ -194,7 +194,7 @@ function UpiDemo() {
       >
         PAY VIA UPI
       </div>
-      <p className="mt-2.5 text-[10px] text-cream/45">Public pay page · Razorpay UPI</p>
+      <p className="mt-2.5 text-[10px] text-slate/45">Public pay page · Razorpay UPI</p>
     </div>
   );
 }

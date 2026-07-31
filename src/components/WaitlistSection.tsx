@@ -9,7 +9,7 @@ export default function WaitlistSection() {
           <h2 className="text-center font-heading text-3xl font-bold text-cream">
             {WAITLIST.heading}
           </h2>
-          <p className="mb-8 mt-3 text-center text-sm text-cream/70">{WAITLIST.subheading}</p>
+          <p className="mb-8 mt-3 text-center text-sm text-slate/70">{WAITLIST.subheading}</p>
           <WaitlistForm />
         </div>
       </div>

@@ -6,7 +6,7 @@ import { LANGUAGES, WAITLIST } from "@/content/copy";
 type Errors = Partial<Record<"name" | "email" | "platform_handle" | "primary_language", string>>;
 
 const inputClass =
-  "w-full rounded-lg border border-cosmic bg-night/60 px-4 py-3 text-sm text-cream placeholder:text-cream/40 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold";
+  "w-full rounded-lg border border-cosmic bg-night/60 px-4 py-3 text-sm text-cream placeholder:text-slate/40 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold";
 
 export default function WaitlistForm() {
   const startedAt = useRef(Date.now());
@@ -63,7 +63,7 @@ export default function WaitlistForm() {
     return (
       <div className="text-center" role="status">
         <h3 className="font-heading text-2xl font-bold text-gold">{WAITLIST.success.heading}</h3>
-        <p className="mt-3 text-cream/75">{WAITLIST.success.body}</p>
+        <p className="mt-3 text-slate/75">{WAITLIST.success.body}</p>
       </div>
     );
   }
@@ -79,7 +79,7 @@ export default function WaitlistForm() {
       </div>
 
       <div>
-        <label htmlFor="wl-name" className="mb-1.5 block text-sm text-cream/80">
+        <label htmlFor="wl-name" className="mb-1.5 block text-sm text-slate/80">
           {WAITLIST.fields.name}
         </label>
         <input id="wl-name" name="name" type="text" autoComplete="name" className={inputClass} />
@@ -87,7 +87,7 @@ export default function WaitlistForm() {
       </div>
 
       <div>
-        <label htmlFor="wl-email" className="mb-1.5 block text-sm text-cream/80">
+        <label htmlFor="wl-email" className="mb-1.5 block text-sm text-slate/80">
           {WAITLIST.fields.email}
         </label>
         <input id="wl-email" name="email" type="email" autoComplete="email" className={inputClass} />
@@ -95,7 +95,7 @@ export default function WaitlistForm() {
       </div>
 
       <div>
-        <span className="mb-1.5 block text-sm text-cream/80">{WAITLIST.fields.platform}</span>
+        <span className="mb-1.5 block text-sm text-slate/80">{WAITLIST.fields.platform}</span>
         <div className="flex gap-2" role="group" aria-label="Platform">
           {WAITLIST.platforms.map((p) => (
             <button
@@ -106,7 +106,7 @@ export default function WaitlistForm() {
               className={`rounded-lg border px-4 py-2 text-sm transition-colors ${
                 platform === p
                   ? "border-gold bg-gold/15 text-gold"
-                  : "border-cosmic text-cream/70 hover:border-genie"
+                  : "border-cosmic text-slate/70 hover:border-genie"
               }`}
             >
               {p}
@@ -126,7 +126,7 @@ export default function WaitlistForm() {
       </div>
 
       <div>
-        <label htmlFor="wl-language" className="mb-1.5 block text-sm text-cream/80">
+        <label htmlFor="wl-language" className="mb-1.5 block text-sm text-slate/80">
           {WAITLIST.fields.language}
         </label>
         <select id="wl-language" name="primary_language" defaultValue="" className={inputClass}>
@@ -149,11 +149,11 @@ export default function WaitlistForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full rounded-full bg-gold py-3.5 font-semibold text-night transition-transform hover:scale-[1.02] disabled:opacity-60"
+        className="btn-gold w-full rounded-full py-3.5 font-semibold transition-transform hover:scale-[1.02] disabled:opacity-60"
       >
         {status === "submitting" ? "Joining…" : WAITLIST.button}
       </button>
-      <p className="text-center text-xs text-cream/50">{WAITLIST.microcopy}</p>
+      <p className="text-center text-xs text-slate/50">{WAITLIST.microcopy}</p>
     </form>
   );
 }

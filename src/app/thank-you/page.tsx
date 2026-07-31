@@ -21,7 +21,7 @@ export default function ThankYou() {
       <h1 className="mt-6 font-heading text-3xl font-bold text-gold">
         {WAITLIST.success.heading}
       </h1>
-      <p className="mt-3 max-w-md text-cream/75">{WAITLIST.success.body}</p>
+      <p className="mt-3 max-w-md text-slate/75">{WAITLIST.success.body}</p>
       <Link href="/" className="mt-8 rounded-full border border-gold px-6 py-2.5 text-sm text-gold transition-colors hover:bg-gold hover:text-night">
         Back to Genie
       </Link>

@@ -45,7 +45,7 @@ export default function Carousel() {
             <h2 className="font-heading text-3xl font-bold text-cream md:text-4xl">
               {CAROUSEL.heading}
             </h2>
-            <p className="mt-3 max-w-2xl text-cream/70">{CAROUSEL.subheading}</p>
+            <p className="mt-3 max-w-2xl text-slate/70">{CAROUSEL.subheading}</p>
           </div>
           <div className="hidden shrink-0 gap-2 md:flex">
             {([-1, 1] as const).map((dir) => (
@@ -54,7 +54,7 @@ export default function Carousel() {
                 type="button"
                 onClick={() => scrollBy(dir)}
                 aria-label={dir === -1 ? "Previous features" : "Next features"}
-                className="rounded-full border border-cosmic p-3 text-cream/70 transition-colors hover:border-gold hover:text-gold"
+                className="rounded-full border border-cosmic p-3 text-slate/70 transition-colors hover:border-gold hover:text-gold"
               >
                 {dir === -1 ? <ChevronLeft size={18} /> : <ChevronRight size={18} />}
               </button>
@@ -73,7 +73,7 @@ export default function Carousel() {
             return (
               <article
                 key={card.title}
-                className="flex w-[19rem] shrink-0 snap-start flex-col rounded-2xl border border-cosmic bg-cosmic/60 p-3 transition-colors hover:border-genie sm:w-[21rem]"
+                className="surface card-glow flex w-[19rem] shrink-0 snap-start flex-col rounded-2xl p-3 transition-colors hover:border-genie sm:w-[21rem]"
               >
               <CardDemo id={card.demo} />
               <div className="flex flex-1 flex-col px-2 pb-1 pt-4">
@@ -83,7 +83,7 @@ export default function Carousel() {
                   </span>
                   {card.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-cream/70">
+                <p className="mt-3 text-sm leading-relaxed text-slate/70">
                   {card.description}
                 </p>
               </div>

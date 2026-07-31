@@ -18,14 +18,19 @@ export default function TermsPage() {
 
       <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="space-y-8 text-zinc-600">
-          <p className="text-sm text-zinc-500">Last updated: 22 July 2026</p>
+          <p className="text-sm text-zinc-500">Last updated: 30 July 2026</p>
 
           <p className="leading-relaxed">
             These Terms &amp; Conditions ("Terms") govern your access to and use of
-            the Genie Hive platform, website, and related services (collectively,
-            the "Service") operated by Genie Hive ("Genie Hive", "we", "us", or
-            "our"). By creating an account or using the Service, you agree to be
-            bound by these Terms. If you do not agree, do not use the Service.
+            the Genie Hive platform, website, waitlist, and related services
+            (collectively, the "Service") operated by <strong>Genie Hive Private
+            Limited</strong> (CIN U62011TN2026PTC189462), a company incorporated
+            under the Companies Act, 2013 with its registered office at No. 42,
+            Mufti Ameerullah Sahib Street, 3rd Floor, B3, Tiruvallikkeni, Chennai
+            600005, Tamil Nadu, India ("Genie Hive", "we", "us", or "our"). By
+            joining our waitlist, creating an account, or using the Service, you
+            agree to be bound by these Terms. If you do not agree, do not use the
+            Service.
           </p>
 
           <section>
@@ -62,12 +67,16 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-zinc-900 mb-3">4. Payments, Credits &amp; Subscriptions</h2>
             <p className="leading-relaxed mb-4">
-              Paid features are billed through Razorpay. By making a payment you
+              Paid features are offered as subscription plans (and, in future,
+              usage-based credits) and are billed in Indian Rupees (INR) through
+              our payment partner Razorpay Software Pvt. Ltd. We may add Cashfree
+              Payments as an additional processor. By making a payment you
               authorise us and our payment processor to charge the applicable
-              amount in Indian Rupees, inclusive of taxes where applicable.
+              amount, inclusive of taxes where applicable.
             </p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Credits or wallet balances are non-transferable between accounts.</li>
+              <li>New users may be offered a free trial. You can evaluate the Service during the trial before any charge applies.</li>
+              <li>Credits or wallet balances, where offered, are non-transferable between accounts.</li>
               <li>Subscription plans renew automatically at the end of each billing cycle unless cancelled beforehand.</li>
               <li>You can cancel a subscription any time from your account settings; access continues until the end of the paid period.</li>
               <li>Prices, plan features, and quotas may change with prior notice.</li>
@@ -193,6 +202,16 @@ export default function TermsPage() {
               <a href="mailto:legal@geniehive.in" className="text-zinc-900 underline hover:no-underline">legal@geniehive.in</a>{' '}
               or visit our{' '}
               <Link href="/contact" className="text-zinc-900 underline hover:no-underline">Contact page</Link>.
+            </p>
+          </section>
+
+          <section className="border-t border-zinc-200 pt-6">
+            <h2 className="text-lg font-semibold text-zinc-900 mb-3">Company details</h2>
+            <p className="leading-relaxed text-sm">
+              Genie Hive Private Limited<br />
+              CIN: U62011TN2026PTC189462<br />
+              Registered office: No. 42, Mufti Ameerullah Sahib Street, 3rd Floor,
+              B3, Tiruvallikkeni, Chennai 600005, Tamil Nadu, India
             </p>
           </section>
         </div>

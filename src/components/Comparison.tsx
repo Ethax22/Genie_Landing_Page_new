@@ -26,7 +26,7 @@ export default function Comparison() {
         <h2 className="text-center font-heading text-3xl font-bold text-cream md:text-4xl">
           {COMPARISON.heading}
         </h2>
-        <p className="mt-3 text-center text-lg text-cream/70">{COMPARISON.subheading}</p>
+        <p className="mt-3 text-center text-lg text-slate/70">{COMPARISON.subheading}</p>
 
         {/* Desktop: elevated card holding a 3-col table */}
         <div className="mt-14 hidden md:block">
@@ -73,7 +73,7 @@ export default function Comparison() {
                     className="border-t border-cosmic/50"
                   >
                     <td className="p-5 align-middle">
-                      <p className="font-medium leading-relaxed text-cream/90">{row}</p>
+                      <p className="font-medium leading-relaxed text-slate/90">{row}</p>
                     </td>
                     <td className="p-5 text-center align-middle">
                       <GenieMark />
@@ -93,13 +93,13 @@ export default function Comparison() {
           {COMPARISON.rows.map((row, i) => (
             <Reveal as="li" key={row} delay={i * 60}>
               <div className="rounded-xl border border-cosmic bg-cosmic/30 p-4">
-                <p className="text-sm font-medium leading-relaxed text-cream/90">{row}</p>
+                <p className="text-sm font-medium leading-relaxed text-slate/90">{row}</p>
                 <div className="mt-3 flex items-center gap-6 text-xs">
-                  <span className="inline-flex items-center gap-2 font-semibold text-cream/80">
+                  <span className="inline-flex items-center gap-2 font-semibold text-slate/80">
                     <Check size={15} strokeWidth={3} className="text-green-400" />
                     {COMPARISON.colGenie}
                   </span>
-                  <span className="inline-flex items-center gap-2 text-cream/45">
+                  <span className="inline-flex items-center gap-2 text-slate/45">
                     <X size={15} strokeWidth={3} className="text-red-400/80" />
                     Others
                   </span>

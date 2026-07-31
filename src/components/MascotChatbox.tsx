@@ -43,7 +43,7 @@ export default function MascotChatbox({ watchId }: { watchId: string }) {
           type="button"
           aria-label="Dismiss"
           onClick={() => setVisible(false)}
-          className="absolute right-2 top-2 text-cream/50 hover:text-cream"
+          className="absolute right-2 top-2 text-slate/50 hover:text-cream"
         >
           <X size={16} />
         </button>
@@ -51,7 +51,7 @@ export default function MascotChatbox({ watchId }: { watchId: string }) {
         <a
           href={CHATBOX.cta.href}
           onClick={() => setVisible(false)}
-          className="mt-3 inline-block rounded-full bg-gold px-4 py-2 text-xs font-semibold text-night"
+          className="btn-gold mt-3 inline-block rounded-full px-4 py-2 text-xs font-semibold transition-transform hover:scale-105"
         >
           {CHATBOX.cta.label}
         </a>
@@ -59,9 +59,9 @@ export default function MascotChatbox({ watchId }: { watchId: string }) {
       <Image
         src="/mascot/thinking_image.png"
         alt=""
-        width={64}
-        height={64}
-        className="h-16 w-16 shrink-0 object-contain"
+        width={80}
+        height={80}
+        className="h-20 w-20 shrink-0 object-contain"
       />
     </div>
   );

@@ -50,17 +50,17 @@ export default function Hero() {
           <h1 className="max-w-[16ch] font-heading text-4xl font-bold leading-[1.1] text-cream sm:text-5xl lg:text-[3.25rem] xl:max-w-[18ch]">
             {HERO.h1}
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-cream/75">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-slate/75">
             {HERO.subhead}
           </p>
           <div className="mt-9 flex flex-col items-start gap-3">
             <a
               href="#waitlist"
-              className="rounded-full bg-gold px-9 py-4 font-semibold text-night shadow-lg shadow-gold/20 transition-transform hover:scale-105"
+              className="btn-gold rounded-full px-9 py-4 font-semibold transition-transform hover:scale-105"
             >
               {HERO.cta}
             </a>
-            <span className="text-sm text-cream/60">{HERO.microcopy}</span>
+            <span className="text-sm text-slate/60">{HERO.microcopy}</span>
           </div>
         </div>
 
@@ -70,7 +70,7 @@ export default function Hero() {
             <p className="font-heading text-sm font-semibold text-cream">
               {HERO.greeting.title}
             </p>
-            <p className="mt-0.5 max-w-[15rem] text-xs leading-relaxed text-cream/70">
+            <p className="mt-0.5 max-w-[15rem] text-xs leading-relaxed text-slate/70">
               {HERO.greeting.line}
             </p>
           </div>
@@ -81,7 +81,7 @@ export default function Hero() {
             width={480}
             height={480}
             priority
-            className="w-full drop-shadow-[0_0_50px_rgba(91,59,140,0.5)]"
+            className="w-full drop-shadow-[0_0_50px_rgba(37,99,235,0.5)]"
           />
 
           {HERO.chips.map((chip, i) => (

@@ -36,7 +36,7 @@ export default function FaqSection() {
               className={`rounded-full border px-4 py-2 text-sm transition-colors ${
                 active === cat.id
                   ? "border-gold bg-gold/15 text-gold"
-                  : "border-cosmic text-cream/70 hover:border-genie"
+                  : "border-cosmic text-slate/70 hover:border-genie"
               }`}
             >
               {cat.label}
@@ -55,7 +55,7 @@ export default function FaqSection() {
             {cat.items.map((item) => (
               <details
                 key={item.q}
-                className="group rounded-xl border border-cosmic bg-cosmic/30 px-5 py-4 open:border-genie"
+                className="group surface card-glow rounded-xl px-5 py-4 open:border-genie"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-sm font-semibold text-cream [&::-webkit-details-marker]:hidden">
                   {item.q}
@@ -65,7 +65,7 @@ export default function FaqSection() {
                     aria-hidden
                   />
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-cream/75">{item.a}</p>
+                <p className="mt-3 text-sm leading-relaxed text-slate/75">{item.a}</p>
               </details>
             ))}
           </div>

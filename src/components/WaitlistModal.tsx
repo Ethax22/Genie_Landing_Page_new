@@ -64,7 +64,7 @@ export default function WaitlistModal() {
           type="button"
           onClick={close}
           aria-label="Close"
-          className="absolute right-4 top-4 rounded-full p-1.5 text-cream/60 transition-colors hover:bg-cosmic/60 hover:text-cream"
+          className="absolute right-4 top-4 rounded-full p-1.5 text-slate/60 transition-colors hover:bg-cosmic/60 hover:text-cream"
         >
           <X size={20} />
         </button>
@@ -74,7 +74,7 @@ export default function WaitlistModal() {
         >
           {WAITLIST.heading}
         </h2>
-        <p className="mb-8 mt-3 text-center text-sm text-cream/70">{WAITLIST.subheading}</p>
+        <p className="mb-8 mt-3 text-center text-sm text-slate/70">{WAITLIST.subheading}</p>
         <WaitlistForm />
       </div>
     </div>

@@ -226,10 +226,10 @@ function LivePreview({
 
   return (
     <div className="relative flex h-44 flex-col items-center justify-end overflow-hidden rounded-xl border border-cosmic bg-gradient-to-b from-cosmic/50 via-night to-night sm:h-52">
-      <span className="absolute right-3 top-3 z-20 inline-flex items-center gap-1.5 font-mono text-[9px] tracking-widest text-cream/50">
+      <span className="absolute right-3 top-3 z-20 inline-flex items-center gap-1.5 font-mono text-[9px] tracking-widest text-slate/50">
         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" /> LIVE PREVIEW
       </span>
-      <span className="absolute bottom-2.5 right-3 z-20 font-mono text-[9px] tracking-widest text-cream/25">
+      <span className="absolute bottom-2.5 right-3 z-20 font-mono text-[9px] tracking-widest text-slate/25">
         GENIE
       </span>
       <Image
@@ -238,7 +238,7 @@ function LivePreview({
         width={140}
         height={140}
         style={{ filter: subjectFilter, transition: "filter 0.2s" }}
-        className="pointer-events-none absolute left-1/2 top-3 h-24 w-auto -translate-x-1/2 object-contain drop-shadow-[0_10px_30px_rgba(91,59,140,0.55)] sm:top-4 sm:h-28"
+        className="pointer-events-none absolute left-1/2 top-3 h-24 w-auto -translate-x-1/2 object-contain drop-shadow-[0_10px_30px_rgba(37,99,235,0.5)] sm:top-4 sm:h-28"
       />
       {overlayOpacity > 0 && g ? (
         <div
@@ -311,7 +311,7 @@ function EditDemo({ demo }: { demo: EditDemoData }) {
             aria-selected={sub === s.id}
             onClick={() => setSub(s.id)}
             className={`rounded-md px-3 py-1.5 font-mono text-[11px] tracking-wide transition-colors ${
-              sub === s.id ? "bg-gold text-night" : "bg-night/50 text-cream/60 hover:text-cream"
+              sub === s.id ? "bg-gold text-night" : "bg-night/50 text-slate/60 hover:text-cream"
             }`}
           >
             {s.label.toUpperCase()}
@@ -340,7 +340,7 @@ function EditDemo({ demo }: { demo: EditDemoData }) {
                 <span className={`block font-heading text-sm font-semibold ${on ? "text-gold" : "text-cream"}`}>
                   {cs.name}
                 </span>
-                <span className="mt-0.5 block text-xs text-cream/60">{cs.desc}</span>
+                <span className="mt-0.5 block text-xs text-slate/60">{cs.desc}</span>
               </button>
             );
           })}
@@ -351,7 +351,7 @@ function EditDemo({ demo }: { demo: EditDemoData }) {
       {sub === "broll" ? (
         <div className="space-y-3">
           <div className="flex items-center justify-between gap-3 rounded-lg border border-cosmic bg-night/50 p-3">
-            <span className="text-cream/85">Genie inserts matching B-roll with crossfades</span>
+            <span className="text-slate/85">Genie inserts matching B-roll with crossfades</span>
             <Toggle on={brollOn} onClick={() => setBrollOn((v) => !v)} />
           </div>
           <div className="grid grid-cols-3 gap-2">
@@ -363,7 +363,7 @@ function EditDemo({ demo }: { demo: EditDemoData }) {
                 }`}
               >
                 <span className="block font-mono text-xs text-gold">{b.at}</span>
-                <span className="mt-0.5 block truncate text-[11px] text-cream/70">“{b.keyword}”</span>
+                <span className="mt-0.5 block truncate text-[11px] text-slate/70">“{b.keyword}”</span>
               </div>
             ))}
           </div>
@@ -385,7 +385,7 @@ function EditDemo({ demo }: { demo: EditDemoData }) {
                   className={`rounded-lg border py-2 font-mono text-[10px] tracking-wide transition-colors ${
                     on
                       ? "border-gold bg-gold/10 text-gold"
-                      : "border-cosmic bg-night/50 text-cream/60 hover:text-cream"
+                      : "border-cosmic bg-night/50 text-slate/60 hover:text-cream"
                   }`}
                 >
                   {g.toUpperCase()}
@@ -394,7 +394,7 @@ function EditDemo({ demo }: { demo: EditDemoData }) {
             })}
           </div>
           <div>
-            <div className="mb-1.5 flex items-center justify-between text-xs text-cream/70">
+            <div className="mb-1.5 flex items-center justify-between text-xs text-slate/70">
               <span>Grade intensity</span>
               <span className="font-mono text-gold">{intensity}%</span>
             </div>
@@ -411,7 +411,7 @@ function EditDemo({ demo }: { demo: EditDemoData }) {
           <div className="space-y-2">
             {demo.items.map((item) => (
               <div key={item.label} className="flex items-center justify-between rounded-lg border border-cosmic bg-night/50 p-3">
-                <span className="inline-flex items-center gap-2 text-cream/80">
+                <span className="inline-flex items-center gap-2 text-slate/80">
                   <Check size={14} className="text-gold" /> {item.label}
                 </span>
                 <span className="font-mono text-xs text-gold">{item.value}</span>
@@ -419,7 +419,7 @@ function EditDemo({ demo }: { demo: EditDemoData }) {
             ))}
           </div>
           <div className="flex items-center justify-between gap-3 rounded-lg border border-cosmic bg-night/50 p-3">
-            <span className="text-cream/85">AI noise reduction</span>
+            <span className="text-slate/85">AI noise reduction</span>
             <Toggle on={noiseOn} onClick={() => setNoiseOn((v) => !v)} />
           </div>
           <div className="rounded-lg border border-genie/50 bg-genie/15 p-3">
@@ -448,7 +448,7 @@ function EditDemo({ demo }: { demo: EditDemoData }) {
                   <span className={`block font-heading text-sm font-semibold ${on ? "text-gold" : "text-cream"}`}>
                     {v.label}
                   </span>
-                  <span className="mt-0.5 block font-mono text-[10px] uppercase tracking-wide text-cream/55">
+                  <span className="mt-0.5 block font-mono text-[10px] uppercase tracking-wide text-slate/55">
                     {v.value}
                   </span>
                 </button>
@@ -456,7 +456,7 @@ function EditDemo({ demo }: { demo: EditDemoData }) {
             })}
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-xs text-cream/70">{demo.variants.length} output formats · ready</span>
+            <span className="text-xs text-slate/70">{demo.variants.length} output formats · ready</span>
             <div className="flex items-center gap-1.5">
               {demo.variants.map((v, i) => (
                 <span
@@ -540,13 +540,13 @@ function TabDemo({
                 ? "border-genie/50 bg-genie/15"
                 : "border-cosmic bg-night/50";
             const label =
-              r.tone === "gold" ? "text-gold" : r.tone === "genie" ? "text-genie" : "text-cream/40";
+              r.tone === "gold" ? "text-gold" : r.tone === "genie" ? "text-genie" : "text-slate/40";
             return (
               <div key={i} className={`flex items-baseline gap-3 rounded-lg border px-3 py-2 ${box}`}>
                 <span className={`w-10 shrink-0 font-mono text-[10px] tracking-wide ${label}`}>
                   {r.label}
                 </span>
-                <span className="text-cream/85">
+                <span className="text-slate/85">
                   <TypeText text={r.text} startDelay={at(r.text)} />
                 </span>
               </div>
@@ -570,14 +570,14 @@ function TabDemo({
                 className={`rounded-full border px-3 py-1.5 text-xs transition-colors ${
                   lang === l
                     ? "border-gold bg-gold/15 text-gold"
-                    : "border-cosmic text-cream/70 hover:border-genie hover:text-cream"
+                    : "border-cosmic text-slate/70 hover:border-genie hover:text-cream"
                 }`}
               >
                 {l}
               </button>
             ))}
           </div>
-          <p className="mt-4 font-mono text-xs text-cream/60">
+          <p className="mt-4 font-mono text-xs text-slate/60">
             {/* keyed by lang so the line retypes when a language is picked */}
             <TypeText
               key={lang}
@@ -592,13 +592,13 @@ function TabDemo({
         <div className="space-y-3 text-sm">
           {demo.slots.map((slot, i) => (
             <div key={i} className="flex items-center justify-between rounded-lg border border-cosmic bg-night/50 p-3">
-              <span className="text-cream/85">
+              <span className="text-slate/85">
                 <TypeText text={slot.platform} startDelay={at(slot.platform)} />
               </span>
-              <span className="font-mono text-xs text-cream/60">{slot.when}</span>
+              <span className="font-mono text-xs text-slate/60">{slot.when}</span>
               <span
                 className={`rounded-full px-2.5 py-1 font-mono text-[10px] ${
-                  slot.status === "Scheduled" ? "bg-gold/15 text-gold" : "bg-cosmic text-cream/60"
+                  slot.status === "Scheduled" ? "bg-gold/15 text-gold" : "bg-cosmic text-slate/60"
                 }`}
               >
                 {slot.status.toUpperCase()}
@@ -636,7 +636,7 @@ export default function MockupSection() {
           <h2 className="font-heading text-3xl font-bold leading-tight text-cream md:text-4xl">
             {MOCKUP.heading}
           </h2>
-          <p className="mt-4 text-cream/70">{MOCKUP.subheading}</p>
+          <p className="mt-4 text-slate/70">{MOCKUP.subheading}</p>
 
           <ul className="mt-8 border-t border-cosmic/60">
             {MOCKUP.tabs.map((t) => {
@@ -651,7 +651,7 @@ export default function MockupSection() {
                   >
                     <span
                       className={`flex items-center gap-3 font-heading text-base font-semibold transition-colors ${
-                        isOpen ? "text-gold" : "text-cream/80"
+                        isOpen ? "text-gold" : "text-slate/80"
                       }`}
                     >
                       <span
@@ -664,11 +664,11 @@ export default function MockupSection() {
                     {isOpen ? (
                       <Minus size={16} className="shrink-0 text-gold" />
                     ) : (
-                      <Plus size={16} className="shrink-0 text-cream/50" />
+                      <Plus size={16} className="shrink-0 text-slate/50" />
                     )}
                   </button>
                   {isOpen ? (
-                    <p className="max-w-sm pb-5 pl-5 text-sm leading-relaxed text-cream/70">
+                    <p className="max-w-sm pb-5 pl-5 text-sm leading-relaxed text-slate/70">
                       {t.description}
                     </p>
                   ) : null}
@@ -715,7 +715,7 @@ export default function MockupSection() {
                   className={`flex-1 rounded-t-lg border-b-2 px-2 py-2.5 font-mono text-xs tracking-wide transition-colors sm:text-sm ${
                     active === t.id
                       ? "border-gold bg-night/50 text-gold"
-                      : "border-transparent text-cream/55 hover:text-cream"
+                      : "border-transparent text-slate/55 hover:text-cream"
                   }`}
                 >
                   {t.label.toUpperCase()}
@@ -745,7 +745,7 @@ export default function MockupSection() {
               height={160}
               className="h-24 w-24 shrink-0 object-contain -my-2 sm:h-36 sm:w-36 sm:-my-4"
             />
-            <p className="text-sm leading-relaxed text-cream/85">{MOCKUP.banner.text}</p>
+            <p className="text-sm leading-relaxed text-slate/85">{MOCKUP.banner.text}</p>
             <span className="shrink-0 font-mono text-[10px] tracking-widest text-gold">
               {MOCKUP.banner.tag}
             </span>
