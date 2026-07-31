@@ -34,7 +34,7 @@ export default function MascotChatbox({ watchId }: { watchId: string }) {
 
   return (
     <div
-      className="fixed bottom-5 right-5 z-40 flex max-w-xs items-end gap-3 motion-safe:animate-fade-up"
+      className="fixed bottom-4 right-4 z-40 flex max-w-[15rem] items-end gap-3 motion-safe:animate-fade-up sm:bottom-5 sm:right-5 sm:max-w-xs"
       role="dialog"
       aria-label="Genie says"
     >
@@ -61,7 +61,7 @@ export default function MascotChatbox({ watchId }: { watchId: string }) {
         alt=""
         width={80}
         height={80}
-        className="h-20 w-20 shrink-0 object-contain"
+        className="hidden h-20 w-20 shrink-0 object-contain sm:block"
       />
     </div>
   );

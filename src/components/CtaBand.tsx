@@ -3,7 +3,7 @@ import { CTA_BAND } from "@/content/copy";
 
 export default function CtaBand() {
   return (
-    <section className="relative bg-night px-6 pb-24 pt-32">
+    <section className="relative bg-night px-6 pb-16 pt-28 md:pb-24 md:pt-32">
       <div className="relative mx-auto max-w-4xl">
         {/* Mascot overhangs the panel's top edge — kept outside the clipped panel so it isn't cropped */}
         <Image

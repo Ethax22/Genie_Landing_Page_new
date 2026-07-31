@@ -30,7 +30,7 @@ export default function Nav() {
       }`}
     >
       <nav
-        className={`mx-auto flex max-w-5xl items-center justify-between rounded-full border border-cosmic/60 px-4 shadow-lg shadow-night/50 transition-all duration-300 sm:px-6 ${
+        className={`relative z-[60] mx-auto flex max-w-5xl items-center justify-between rounded-full border border-cosmic/60 px-4 shadow-lg shadow-night/50 transition-all duration-300 sm:px-6 ${
           scrolled ? "py-2" : "py-3"
         }`}
         style={{

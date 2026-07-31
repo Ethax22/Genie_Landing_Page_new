@@ -29,7 +29,7 @@ export default function Footer() {
         <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
           {FOOTER.legal.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="transition-colors hover:text-gold">
+              <a href={link.href} className="inline-block py-1 transition-colors hover:text-gold">
                 {link.label}
               </a>
             </li>
@@ -41,7 +41,7 @@ export default function Footer() {
               <a
                 href={social.href}
                 aria-label={social.label}
-                className="text-slate/50 transition-colors hover:text-gold"
+                className="inline-flex p-2 text-slate/50 transition-colors hover:text-gold"
                 target="_blank"
                 rel="noopener noreferrer"
               >

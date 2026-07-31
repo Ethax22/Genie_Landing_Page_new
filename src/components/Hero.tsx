@@ -27,10 +27,11 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="stars relative overflow-hidden bg-gradient-to-b from-night via-cosmic/60 to-night pb-24 pt-36 md:pt-44"
+      className="stars relative overflow-hidden bg-gradient-to-b from-night via-cosmic/60 to-night pb-16 pt-32 md:pb-24 md:pt-44"
     >
-      {/* Ghosted pain-point background text */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* Ghosted pain-point background text — hidden on mobile where there are
+          no side gutters, so it never collides with the headline or mascot. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
         {GHOST_POSITIONS.map((pos, i) => (
           <span
             key={i}
@@ -84,17 +85,25 @@ export default function Hero() {
             className="w-full drop-shadow-[0_0_50px_rgba(37,99,235,0.5)]"
           />
 
+          {/* Desktop: chips float in the gutters around the mascot */}
           {HERO.chips.map((chip, i) => (
             <StatChip
               key={chip.label}
               emoji={chip.emoji}
               label={chip.label}
-              className={`float-chip absolute ${
-                ["left-0 top-1/3 md:-left-10", "-right-2 top-1/2 md:-right-8", "bottom-12 left-6"][i]
+              className={`float-chip absolute hidden md:inline-flex ${
+                ["top-1/3 md:-left-10", "top-1/2 md:-right-8", "bottom-12 left-6"][i]
               }`}
               style={{ "--float-delay": `${i * 0.9}s` } as React.CSSProperties}
             />
           ))}
+
+          {/* Mobile: chips sit in a tidy wrapped row below the mascot */}
+          <div className="mt-6 flex flex-wrap justify-center gap-2 md:hidden">
+            {HERO.chips.map((chip) => (
+              <StatChip key={chip.label} emoji={chip.emoji} label={chip.label} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -629,7 +629,7 @@ export default function MockupSection() {
   }
 
   return (
-    <section id="product" className="relative overflow-hidden bg-night py-24">
+    <section id="product" className="relative overflow-hidden bg-night py-16 md:py-24">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-16 lg:px-14">
         {/* Left: copy + tool accordion */}
         <div className="lg:sticky lg:top-28">

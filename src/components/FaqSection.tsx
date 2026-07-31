@@ -14,7 +14,7 @@ export default function FaqSection() {
   );
 
   return (
-    <section id="faq" className="bg-night py-24">
+    <section id="faq" className="bg-night py-16 md:py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <h2 className="text-center font-heading text-3xl font-bold text-cream md:text-4xl">
           {FAQ.heading}
