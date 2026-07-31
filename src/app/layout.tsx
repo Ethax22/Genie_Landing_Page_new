@@ -40,14 +40,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     images: [
-      { url: "/mascot/genie-mascot-home.png", width: 480, height: 480, alt: "GenieHive — The Vertical AI Creator Studio" },
+      { url: "/og.png", width: 1920, height: 1080, alt: "GenieHive — The Vertical AI Creator Studio" },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: META.title,
     description: META.description,
-    images: ["/mascot/genie-mascot-home.png"],
+    images: ["/og.png"],
   },
   robots: {
     index: true,

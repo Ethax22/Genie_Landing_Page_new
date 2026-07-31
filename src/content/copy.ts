@@ -390,7 +390,7 @@ export const FOOTER = {
 export const META = {
   title: "The Vertical AI Creator Studio | GenieHive",
   description:
-    "GenieHive is the vertical AI creator studio built for India — AI script-to-video, auto-editing, dubbing in 11 Indian languages with 38 voices, thumbnails, and auto-publishing to YouTube Shorts & Instagram Reels, with UPI payments. Join the waitlist.",
+    "GenieHive is the vertical AI creator studio built for India — an end-to-end workflow that takes creators from idea to income in 11 Indian languages, with direct UPI payments. Join the waitlist.",
   siteName: "GenieHive",
   url: "https://geniehive.in",
   keywords: [
