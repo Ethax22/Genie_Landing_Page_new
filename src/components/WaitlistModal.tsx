@@ -12,9 +12,11 @@ import WaitlistForm from "./WaitlistForm";
  */
 export default function WaitlistModal() {
   const [open, setOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const close = useCallback(() => {
     setOpen(false);
+    setSubmitted(false);
     if (typeof window !== "undefined" && window.location.hash === "#waitlist") {
       history.replaceState(null, "", window.location.pathname + window.location.search);
     }
@@ -68,14 +70,17 @@ export default function WaitlistModal() {
         >
           <X size={20} />
         </button>
-        <h2
-          id="waitlist-modal-title"
-          className="text-center font-heading text-3xl font-bold text-cream"
-        >
-          {WAITLIST.heading}
-        </h2>
-        <p className="mb-8 mt-3 text-center text-sm text-slate/70">{WAITLIST.subheading}</p>
-        <WaitlistForm />
+        {!submitted && (
+          <>
+            <h2
+              id="waitlist-modal-title"
+              className="mb-8 text-center font-heading text-3xl font-bold text-cream"
+            >
+              {WAITLIST.heading}
+            </h2>
+          </>
+        )}
+        <WaitlistForm onSuccess={() => setSubmitted(true)} />
       </div>
     </div>
   );

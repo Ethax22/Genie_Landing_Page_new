@@ -1,6 +1,13 @@
 ﻿import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Terms & Conditions',
+  description: 'The terms governing your use of GenieHive, operated by Genie Hive Private Limited.',
+  alternates: { canonical: '/terms' },
+};
 
 export default function TermsPage() {
   return (

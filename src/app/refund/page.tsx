@@ -1,6 +1,13 @@
 ﻿import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Refund & Cancellation Policy',
+  description: 'How refunds, cancellations, credits, and wallet withdrawals work on GenieHive.',
+  alternates: { canonical: '/refund' },
+};
 
 export default function RefundPage() {
   return (

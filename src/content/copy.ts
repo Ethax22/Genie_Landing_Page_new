@@ -348,8 +348,6 @@ export const FAQ = {
 
 export const WAITLIST = {
   heading: "Get in before the doors open.",
-  subheading:
-    "Closed beta is limited. Waitlist members get first access as seats free up.",
   fields: {
     name: "Name",
     email: "Email",
@@ -390,9 +388,21 @@ export const FOOTER = {
 } as const;
 
 export const META = {
-  title: "Genie — Record once. Publish in 11 Indian languages.",
+  title: "The Vertical AI Creator Studio | GenieHive",
   description:
-    "Genie is a Creator OS for India's regional-language creators: AI editing, dubbing in 11 Indian languages with 38 voices, and direct publishing to YouTube Shorts and Instagram Reels. Join the waitlist.",
-  siteName: "Genie",
+    "GenieHive is the vertical AI creator studio built for India — AI script-to-video, auto-editing, dubbing in 11 Indian languages with 38 voices, thumbnails, and auto-publishing to YouTube Shorts & Instagram Reels, with UPI payments. Join the waitlist.",
+  siteName: "GenieHive",
   url: "https://geniehive.in",
+  keywords: [
+    "AI creator studio",
+    "vertical AI creator studio",
+    "AI video editing India",
+    "Indian language dubbing",
+    "AI dubbing 11 Indian languages",
+    "YouTube Shorts automation",
+    "Instagram Reels automation",
+    "regional language creators",
+    "UPI creator payments",
+    "GenieHive",
+  ],
 } as const;

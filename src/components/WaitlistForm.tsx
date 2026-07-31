@@ -8,7 +8,7 @@ type Errors = Partial<Record<"name" | "email" | "platform_handle" | "primary_lan
 const inputClass =
   "w-full rounded-lg border border-cosmic bg-night/60 px-4 py-3 text-sm text-cream placeholder:text-slate/40 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold";
 
-export default function WaitlistForm() {
+export default function WaitlistForm({ onSuccess }: { onSuccess?: () => void }) {
   const startedAt = useRef(Date.now());
   const [platform, setPlatform] = useState<(typeof WAITLIST.platforms)[number]>("Instagram");
   const [errors, setErrors] = useState<Errors>({});
@@ -49,6 +49,7 @@ export default function WaitlistForm() {
       const json = await res.json();
       if (res.ok && json.ok) {
         setStatus("success");
+        onSuccess?.();
       } else {
         setStatus("error");
         setServerError(json.error || "Something went wrong. Please try again.");
