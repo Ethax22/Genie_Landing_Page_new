@@ -68,11 +68,16 @@ const jsonLd = {
       "@type": "Organization",
       "@id": `${META.url}/#organization`,
       name: "Genie Hive Private Limited",
-      alternateName: "GenieHive",
+      alternateName: ["GenieHive", "Genie Hive"],
       url: META.url,
       logo: `${META.url}/icon.png`,
       description: META.description,
       areaServed: { "@type": "Country", name: "India" },
+      sameAs: [
+        "https://www.linkedin.com/company/genie-hive/",
+        "https://www.instagram.com/genie_hive",
+        "https://www.youtube.com/@GenieHive_official",
+      ],
     },
     {
       "@type": "WebSite",
