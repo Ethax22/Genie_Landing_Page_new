@@ -25,8 +25,48 @@ export const NAV = {
     { label: "Features", href: "#features" },
     { label: "Genie vs AI", href: "#genie-vs-ai" },
     { label: "FAQ", href: "#faq" },
+    { label: "Company", href: "/team" },
   ],
   cta: { label: "Join the Waitlist", href: "#waitlist" },
+} as const;
+
+export const TEAM = {
+  legalName: "Genie Hive Private Limited",
+  cin: "U62011TN2026PTC189462",
+  dpiit: "DIPP258557",
+  incorporated: "Chennai, Tamil Nadu, India — February 2026",
+  members: [
+    {
+      name: "Prakash",
+      role: "Founder & CEO",
+      linkedin: "https://www.linkedin.com/in/prakash-d-645717359/",
+    },
+    {
+      name: "NGP Keerthi",
+      role: "Co-Founder & CPO",
+      linkedin: "https://www.linkedin.com/in/nougotlu-gnana-prasuna-keerthi-a6a760274/",
+    },
+    {
+      name: "Lakshan S",
+      role: "CTO",
+      linkedin: "https://www.linkedin.com/in/lakshan-s-a673b8379/",
+    },
+    {
+      name: "Mohamed Anas A",
+      role: "CGO",
+      linkedin: "https://www.linkedin.com/in/mohamed-anas-5341b02b4/",
+    },
+    {
+      name: "Ramya G",
+      role: "CMO",
+      linkedin: "https://www.linkedin.com/in/ramya-g-b63a61344/",
+    },
+    {
+      name: "Preetha S",
+      role: "CCO",
+      linkedin: "https://www.linkedin.com/in/preetha-selvan-0bb89331b/",
+    },
+  ],
 } as const;
 
 export const HERO = {
