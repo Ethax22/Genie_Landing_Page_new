@@ -108,7 +108,8 @@ export const TRUST = {
     { name: "AWS", src: "/partners/aws.svg" },
     { name: "Deepgram", src: "/partners/deepgram.svg" },
     { name: "Sarvam AI", src: "/partners/sarvam.png" },
-    { name: "Anthropic", src: "/partners/anthropic.svg" },
+    // Cartesia Startups grant requires their logo on the site; the SVG is a full wordmark, so no text label
+    { name: "Cartesia", src: "/partners/cartesia-logo-primary.svg", wordmark: true },
   ],
 } as const;
 

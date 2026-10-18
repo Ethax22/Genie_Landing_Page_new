@@ -9,18 +9,31 @@ export default function TrustStrip() {
           {TRUST.label.toUpperCase()}
         </p>
         <ul className="flex flex-wrap items-center justify-center gap-x-14 gap-y-8 sm:justify-between">
-          {TRUST.partners.map((p) => (
-            <li key={p.name} className="flex items-center gap-2.5">
-              <Image
-                src={p.src}
-                alt=""
-                width={28}
-                height={28}
-                className="h-7 w-7 object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100"
-              />
-              <span className="whitespace-nowrap text-sm text-slate/70">{p.name}</span>
-            </li>
-          ))}
+          {TRUST.partners.map((p) =>
+            "wordmark" in p ? (
+              <li key={p.name} className="flex items-center">
+                {/* Dark wordmark on a dark strip: render it white to match the muted logos */}
+                <Image
+                  src={p.src}
+                  alt={p.name}
+                  width={113}
+                  height={16}
+                  className="h-4 w-auto object-contain brightness-0 invert opacity-70 transition-opacity duration-300 hover:opacity-100"
+                />
+              </li>
+            ) : (
+              <li key={p.name} className="flex items-center gap-2.5">
+                <Image
+                  src={p.src}
+                  alt=""
+                  width={28}
+                  height={28}
+                  className="h-7 w-7 object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100"
+                />
+                <span className="whitespace-nowrap text-sm text-slate/70">{p.name}</span>
+              </li>
+            ),
+          )}
         </ul>
       </div>
     </section>
