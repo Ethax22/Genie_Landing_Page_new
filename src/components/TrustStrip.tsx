@@ -8,9 +8,21 @@ export default function TrustStrip() {
         <p className="mb-10 text-center font-mono text-xs tracking-widest text-slate/50">
           {TRUST.label.toUpperCase()}
         </p>
-        <ul className="flex flex-wrap items-center justify-center gap-x-14 gap-y-8 sm:justify-between">
+        <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 sm:justify-between">
           {TRUST.partners.map((p) =>
-            "wordmark" in p ? (
+            "badge" in p ? (
+              <li key={p.name} className="flex items-center">
+                <a href={p.href} target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src={p.src}
+                    alt={p.name}
+                    width={160}
+                    height={14}
+                    className="h-3.5 w-auto object-contain opacity-70 transition-opacity duration-300 hover:opacity-100"
+                  />
+                </a>
+              </li>
+            ) : "wordmark" in p ? (
               <li key={p.name} className="flex items-center">
                 {/* Dark wordmark on a dark strip: render it white to match the muted logos */}
                 <Image

@@ -110,6 +110,8 @@ export const TRUST = {
     { name: "Sarvam AI", src: "/partners/sarvam.png" },
     // Cartesia Startups grant requires their logo on the site; the SVG is a full wordmark, so no text label
     { name: "Cartesia", src: "/partners/cartesia-logo-primary.svg", wordmark: true },
+    // ElevenLabs Grants badge (official white-logo version for dark backgrounds, already white so no invert)
+    { name: "ElevenLabs Grants", src: "/partners/elevenlabs-grants.webp", href: "https://elevenlabs.io/startup-grants", badge: true },
   ],
 } as const;
 
